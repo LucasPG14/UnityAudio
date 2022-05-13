@@ -20,7 +20,7 @@ public class BloodSplatterBehaviour : MonoBehaviour
             audioSource.pitch = Random.Range(1.0f, 2.0f);
             audioSource.Play();
             audioClipTime = 2.0f;
-            Instantiate(bloodDrop);
+            Instantiate(bloodDrop, this.transform);
         }
         else
         {
