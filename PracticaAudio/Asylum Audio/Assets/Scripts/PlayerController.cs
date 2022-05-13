@@ -14,8 +14,6 @@ public class PlayerController : MonoBehaviour
     public float mouseSpeed = 5.0f;
     public SoundManager soundManager;
     public AudioClip[] clips;
-    public AudioReverbZone reverbHospital;
-    public AudioReverbZone reverbHouse;
 
     AudioSource audioSource;
     FloorType type;
@@ -30,38 +28,26 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.name == "ToStarterZone")
         {
-            reverbHospital.enabled = true;
-            reverbHouse.enabled = false;
             soundManager.GoToStarterZone();
         }
         else if (other.gameObject.name == "ToCorridor")
         {
-            reverbHospital.enabled = true;
-            reverbHouse.enabled = false;
             soundManager.GoToCorridor();
         }
         else if (other.gameObject.name == "ToSurgery")
         {
-            reverbHospital.enabled = true;
-            reverbHouse.enabled = false;
             soundManager.GoToSurgery();
         }
         else if (other.gameObject.name == "ToForest")
         {
-            reverbHospital.enabled = false;
-            reverbHouse.enabled = false;
             soundManager.GoToForest();
         }
         else if (other.gameObject.name == "ToHospital")
         {
-            reverbHospital.enabled = true;
-            reverbHouse.enabled = false;
             soundManager.GoToReception();
         }
         else if (other.gameObject.name == "Shower")
         {
-            reverbHospital.enabled = true;
-            reverbHouse.enabled = false;
             other.gameObject.GetComponent<AudioSource>().Play();
         }
         else if (other.gameObject.name == "VoiceAnnouncer")
@@ -70,8 +56,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.name == "House")
         {
-            reverbHospital.enabled = false;
-            reverbHouse.enabled = true;
+            soundManager.GoToHouse();
         }
 
     }
@@ -80,9 +65,9 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.name == "House")
         {
-            reverbHospital.enabled = false;
-            reverbHouse.enabled = false;
+            soundManager.GoToForest();
         }
+   
     }
     private void OnCollisionEnter(Collision collision)
     {

@@ -11,19 +11,13 @@ public class SoundManager : MonoBehaviour
     public AudioMixerSnapshot toForest;
     public AudioMixerSnapshot toStarterZone;
     public AudioMixerSnapshot toReception;
+    public AudioMixerSnapshot toHouse;
 
     // Start is called before the first frame update
     void Start()
     {
         toStarterZone.TransitionTo(0.0f);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void GoToCorridor()
     {
         toCorridor.TransitionTo(1.0f);
@@ -49,4 +43,8 @@ public class SoundManager : MonoBehaviour
         toReception.TransitionTo(1.0f);
     }
 
+    public void GoToHouse()
+    {
+        toHouse.TransitionTo(1.0f);
+    }
 }
